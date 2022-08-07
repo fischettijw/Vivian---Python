@@ -58,19 +58,18 @@ def squareXY(t, x, y, size):
     t.hideturtle()
     t.penup()
     t.setpos(x, y)
+    t.forward(-size / 2)
     t.right(90)
     t.forward(size / 2)
-    t.right(90)
+    t.left(90)
+
     t.pendown()
     square(t, size)
-    # t.penup()
-    # t.setpos(x, y)
-    # t.left(180)
-    # t.right(180)
-    # t.forward(size / 2)
-    # t.left(90)
+    t.penup()
+    t.setpos(x, y)
+
     t.pendown()
-    t.showturtle()
+    # t.showturtle()
 
 
 # -----------------------------------------------------------------------------------
@@ -101,11 +100,14 @@ setUpTurtle(kitty, "yellow", "green", 2, 3, 0, 100, -100)
 
 doggie.hideturtle()
 kitty.hideturtle()
+
+# kitty.right(45)
+
 for m in range(25, 200, 25):
     circleXY(kitty, 0, 0, m)
-    squareXY(kitty, 0, 0, m)
-# kitty.hideturtle()
-kitty.showturtle()
+    squareXY(kitty, 0, 0, 2 * m)
+
+# kitty.showturtle()
 
 
 turtle.exitonclick()
