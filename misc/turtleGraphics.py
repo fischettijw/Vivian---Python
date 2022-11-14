@@ -13,7 +13,7 @@ def triangle(size):
         t.right(120)
 
 
-t.setup(width=300, height=600)
+t.setup(width=800, height=600)
 t.bgcolor("pink")
 t.pen(pencolor="green", pensize=5)
 t.shape("triangle")  # “arrow”, “turtle”, “circle”, “square”, “triangle”, “classic”.

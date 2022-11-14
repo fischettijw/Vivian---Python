@@ -38,6 +38,9 @@ def triangle(t, size):
 
 
 def circleXY(t, x, y, radius):
+    origPosX = t.xcor()
+    origPosy = t.ycor()
+    origHeading = t.heading()
     t.hideturtle()
     t.penup()
     t.setpos(x, y)
@@ -50,11 +53,16 @@ def circleXY(t, x, y, radius):
     t.left(90)
     t.forward(radius)
     t.right(90)
+    t.setpos(origPosX, origPosy)
+    t.setheading(origHeading)
     t.pendown()
     t.showturtle()
 
 
 def squareXY(t, x, y, size):
+    origPosX = t.xcor()
+    origPosy = t.ycor()
+    origHeading = t.heading()
     t.hideturtle()
     t.penup()
     t.setpos(x, y)
@@ -62,14 +70,14 @@ def squareXY(t, x, y, size):
     t.right(90)
     t.forward(size / 2)
     t.left(90)
-
     t.pendown()
     square(t, size)
     t.penup()
     t.setpos(x, y)
-
+    t.setpos(origPosX, origPosy)
+    t.setheading(origHeading)
     t.pendown()
-    # t.showturtle()
+    t.showturtle()
 
 
 # -----------------------------------------------------------------------------------
@@ -79,13 +87,14 @@ screen = turtle.Screen()
 setUpScreen(screen, 800, 600, "Turtle Graphics by Vivian", "pink")
 
 doggie = turtle.Turtle()
-setUpTurtle(doggie, "magenta", "magenta", 2, 3, 10, 0, 0)
+setUpTurtle(doggie, "magenta", "magenta", 2, 3, 10, -200, -200)
+
 
 kitty = turtle.Turtle()
-setUpTurtle(kitty, "yellow", "green", 2, 3, 0, 100, -100)
+setUpTurtle(kitty, "yellow", "green", 2, 3, 0, 200, 200)
 
-# square(doggie, 100)
-# triangle(doggie, 100)
+square(doggie, 100)
+triangle(doggie, 100)
 # doggie.circle(100)
 # doggie.hideturtle()
 
@@ -103,11 +112,13 @@ kitty.hideturtle()
 
 # kitty.right(45)
 
-for m in range(25, 200, 25):
-    circleXY(kitty, 0, 0, m)
-    squareXY(kitty, 0, 0, 2 * m)
+for r in range(25, 300, 25):
+    circleXY(kitty, 0, 0, r)
+    squareXY(kitty, 0, 0, 2 * r)
 
-# kitty.showturtle()
+
+kitty.showturtle()
+doggie.showturtle()
 
 
 turtle.exitonclick()
