@@ -1,5 +1,6 @@
 import graphics as g
 import time
+import random as rnd
 
 
 class Ball:
@@ -35,21 +36,50 @@ winHeight = 800
 
 win = g.GraphWin("Moving Ball", winWidth, winHeight)
 win.setBackground("yellow")
-delay = 0.005
+delay = 0.000001
 
-ball1 = Ball(win, 25, "red", 25, 25, 2, 1)
-ball2 = Ball(win, 30, "blue", 50, 50, 2, 3)
-ball3 = Ball(win, 35, "white", 75, 75, 3, 1)
-ball4 = Ball(win, 40, "green", 100, 100, 1, 1)
+# ball1 = Ball(win, 25, "red", 25, 25, 2, 1)
+# ball2 = Ball(win, 30, "blue", 50, 50, 2, 3)
+# ball3 = Ball(win, 35, "white", 75, 75, 3, 1)
+# ball4 = Ball(win, 40, "green", 100, 100, 1, 1)
+# ball5 = Ball(win, 25, "cyan", 25, 25, 2, 8)
+# ball6 = Ball(win, 30, "purple", 50, 50, 2, 15)
+# ball7 = Ball(win, 35, "black", 75, 75, 12, 1)
+# ball8 = Ball(win, 40, "magenta", 100, 100, 19, 1)
 
 
-# win.getMouse()
+colors = ["red", "green", "blue", "purple", "cyan", "magenta", "white", "black"]
+balls = []
+for n in range(100):
+    balls.append(
+        Ball(
+            win,
+            rnd.randint(20, 50),
+            g.color_rgb(rnd.randint(0, 255), rnd.randint(0, 255), rnd.randint(0, 255)),
+            rnd.randint(100, 600),
+            rnd.randint(100, 600),
+            rnd.randint(1, 20),
+            rnd.randint(1, 20),
+        )
+    )
+
+# while True:
+#     ball1.moveBall()
+#     ball2.moveBall()
+#     ball3.moveBall()
+#     ball4.moveBall()
+#     ball5.moveBall()
+#     ball6.moveBall()
+#     ball7.moveBall()
+#     ball8.moveBall()
+#     time.sleep(delay)
+
 while True:
-    ball1.moveBall()
-    ball2.moveBall()
-    ball3.moveBall()
-    ball4.moveBall()
+    for ball in balls:
+        ball.moveBall()
+
     time.sleep(delay)
+
 
 win.getMouse()
 win.close()
