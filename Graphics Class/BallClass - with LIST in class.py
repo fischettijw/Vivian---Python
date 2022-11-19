@@ -50,13 +50,13 @@ delay = 0.0001 / numBalls
 
 balls = []
 for n in range(numBalls):
-    sz = rnd.randint(20, 50)
-    clr = g.color_rgb(rnd.randint(0, 255), rnd.randint(0, 255), rnd.randint(0, 255))
-    xAxis = rnd.randint(100, winWidth - 100)
-    yAxis = rnd.randint(100, winWidth - 100)
-    diffX = rnd.randint(-20, 20)
-    diffY = rnd.randint(-20, 20)
-    balls.append(Ball(win, sz, clr, xAxis, yAxis, diffX, diffY))
+    size = rnd.randint(20, 50)
+    color = g.color_rgb(rnd.randint(0, 255), rnd.randint(0, 255), rnd.randint(0, 255))
+    x = rnd.randint(100, winWidth - 100)
+    y = rnd.randint(100, winWidth - 100)
+    dx = rnd.randint(-30, 30)
+    dy = rnd.randint(-30, 30)
+    balls.append(Ball(win, size, color, x, y, dx, dy))
 
 loopOnBalls = True
 while loopOnBalls:
