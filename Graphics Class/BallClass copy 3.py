@@ -36,22 +36,20 @@ winHeight = 800
 win = g.GraphWin("Moving Ball", winWidth, winHeight)
 win.setBackground("yellow")
 
-ball1 = Ball(win, 25, "red", 25, 25, 1, 1)
-ball2 = Ball(win, 30, "blue", 50, 50, 5, 3)
-ball3 = Ball(win, 35, "white", 75, 75, 3, 1)
-ball4 = Ball(win, 40, "green", 100, 100, 2, 2)
-
+balls = []
+balls.append(Ball(win, 25, "red", 25, 25, 1, 1))
+balls.append(Ball(win, 30, "blue", 50, 50, 5, 3))
+balls.append(Ball(win, 35, "white", 75, 75, 3, 1))
+balls.append(Ball(win, 40, "green", 100, 100, 2, 2))
 
 delay = 0.005
+
 loopOnBalls = True
 while loopOnBalls:
-    ball1.moveBall()
-    ball2.moveBall()
-    ball3.moveBall()
-    ball4.moveBall()
+    for ball in balls:
+        ball.moveBall()
     time.sleep(delay)
     if win.checkMouse() != None:
         loopOnBalls = False
-        
 
 win.close()

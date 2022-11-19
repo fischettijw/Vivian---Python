@@ -4,7 +4,7 @@ import random as rnd
 
 
 class Ball:
-    numOfBalls = 0
+    # numOfBalls = 0
 
     def __init__(self, win, size, color, x, y, dx, dy):
         self.win = win
@@ -19,7 +19,7 @@ class Ball:
         self.ball.setOutline(self.color)
         self.ball.setFill(self.color)
         self.ball.draw(win)
-        Ball.numOfBalls += 1
+        # Ball.numOfBalls += 1
 
     def moveBallBounce(self):
         self.ball.move(self.dx, self.dy)
@@ -63,13 +63,14 @@ for n in range(numBalls):
             rnd.randint(-20, 20),  # dy
         )
     )
-    # print(balls[n])
 
-while True:
+loopOnBalls = True
+while loopOnBalls:
     for ball in balls:
         ball.moveBallBounce()
     time.sleep(delay)
+    if win.checkMouse() != None:
+        loopOnBalls = False
 
-
-win.getMouse()
+# win.getMouse()
 win.close()
