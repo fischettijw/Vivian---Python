@@ -8,7 +8,7 @@ winHeight = 800
 win = g.GraphWin("Bouncing Balls in LIST", winWidth, winHeight)
 win.setBackground("yellow")
 
-numBalls = 100
+numBalls = 120
 delay = 0.0001 / numBalls
 
 balls = []
@@ -16,10 +16,11 @@ for n in range(numBalls):
     size = rnd.randint(20, 50)
     color = g.Ball.randomColor()
     x = rnd.randint(100, winWidth - 100)
-    y = rnd.randint(100, winWidth - 100)
+    y = rnd.randint(100, winHeight - 100)
     dx = rnd.randint(-30, 30)
     dy = rnd.randint(-30, 30)
-    balls.append(g.Ball(win, size, color, x, y, dx, dy))
+    ball = g.Ball(win, size, color, x, y, dx, dy)
+    balls.append(ball)
 
 loopOnBalls = True
 while loopOnBalls:
