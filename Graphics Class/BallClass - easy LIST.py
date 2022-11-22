@@ -36,10 +36,14 @@ class Ball:
                Y={self.y if self.y > 1000 else ('0' + str(self.y))}  Size ={self.size}  Color={self.color}  \
                dx={self.dx}  dy={self.dy}"
 
+    def randomColor():
+        return g.color_rgb(
+            rnd.randint(0, 255), rnd.randint(0, 255), rnd.randint(0, 255)
+        )
+
 
 winWidth = 1600
 winHeight = 800
-
 
 win = g.GraphWin("Bouncing Balls in LIST", winWidth, winHeight)
 win.setBackground("yellow")
@@ -51,7 +55,7 @@ delay = 0.0001 / numBalls
 balls = []
 for n in range(numBalls):
     size = rnd.randint(20, 50)
-    color = g.color_rgb(rnd.randint(0, 255), rnd.randint(0, 255), rnd.randint(0, 255))
+    color = Ball.randomColor()
     x = rnd.randint(100, winWidth - 100)
     y = rnd.randint(100, winWidth - 100)
     dx = rnd.randint(-30, 30)
