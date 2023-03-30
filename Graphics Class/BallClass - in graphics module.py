@@ -8,7 +8,7 @@ winHeight = 800
 win = g.GraphWin("Bouncing Balls in LIST", winWidth, winHeight)
 win.setBackground("yellow")
 
-numBalls = 120
+numBalls = 100
 delay = 0.0001 / numBalls
 
 balls = []
