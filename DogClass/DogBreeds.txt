@@ -1,0 +1,12 @@
+Akita
+Boxer
+Bulldog
+Chow Chow
+Dachshund
+English Cocker Spaniel
+German Shepherd
+Labrador
+Pug
+Rottweiler
+Shih Tzu
+Spitz
