@@ -2,6 +2,8 @@ from Dog import *
 import os
 os.system("cls")
 
+
+
 joker = Dog("Joker", 13, "Boxer", "Family Pet")
 charlie = Dog("Charlie",9, "Pug", "Courageous")
 
