@@ -84,5 +84,5 @@ while Car.race_over == False:
     pygame.display.flip()
 # Game Loop End
 
-pygame.time.wait(5000)
+pygame.time.wait(4000)
 pygame.quit()
