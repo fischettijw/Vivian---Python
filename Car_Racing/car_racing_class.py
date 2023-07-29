@@ -9,7 +9,7 @@ import os
 os.system("cls")
 
 class Car():
-    race_over = False
+    race_over = None
     race_length = None
     car_width = None
     car_min_speed = None
@@ -17,7 +17,7 @@ class Car():
     win = None
     
     pygame.font.init()
-    my_font = pygame.font.SysFont(None, 30)
+    my_font = pygame.font.SysFont("Courier", 50, bold=True)
     
     def __init__(self, x, y, clr1, clr2):
         self.x = x
@@ -73,6 +73,8 @@ car3 = Car(0, 300, "magenta", "purple")
 
 cars = [car1, car2, car3]
 
+bg_image = pygame.image.load("Car_Racing\grass_background.jpg").convert()
+
 Car.race_length = screen_width
 Car.car_width = 70
 Car.car_min_speed = 2
@@ -82,10 +84,10 @@ Car.win = screen
 
 # Game Loop Start
 while Car.race_over == False:
-    screen.fill("cyan")
-
-    # pygame.display.set_caption(f"Vivan's Car Racing Game    {car1.x}")
-    Car.draw_text("Vivian's Car Racing Game", "red", (400, 20))
+    # screen.fill("cyan")
+    
+    screen.blit(bg_image,(0,0))
+    Car.draw_text("Vivian's Car Racing Game", "black", (300, 10))
     Car.draw_lines()
 
     # Event Handler
@@ -104,5 +106,5 @@ while Car.race_over == False:
 
 print(car1.checker_flag(), car2.checker_flag(), car3.checker_flag())
 print(car1.checker_flag() + car2.checker_flag() + car3.checker_flag())
-pygame.time.wait(5000)
+pygame.time.wait(1000)
 pygame.quit()

@@ -12,6 +12,8 @@ def draw_car(x, y):
     pygame.draw.rect(screen, 'yellow', (x + 10, y - 20, 70 - 30, 20))
     pygame.draw.circle(screen, 'black', (x + 15, y + 20), 10)
     pygame.draw.circle(screen, 'black', (x + 55, y + 20), 10)
+    
+    # pygame.draw.rect(screen, 'magenta', (x, y - 20, 70, 50))
 
 # Screen Size
 screen_width = 1024
@@ -74,7 +76,7 @@ while running == True:
     pygame.display.flip()
 # Game Loop End
 
-pygame.time.wait(2000)
+pygame.time.wait(1000)
 if winner == 'tie':
     print('NO WINNER: Both Cars Tied')
 else:
