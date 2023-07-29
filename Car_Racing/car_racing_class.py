@@ -59,12 +59,13 @@ cars = [car1, car2, car3]
 car_min_speed = 3
 car_max_speed = 4
 
-# Game Loop Start
 Car.race_length = screen_width
 Car.car_width = 70
 Car.car_min_speed = 3
 Car.car_max_speed = 6
 Car.race_over = False
+
+# Game Loop Start
 while Car.race_over == False:
     screen.fill("cyan")
     
@@ -84,5 +85,7 @@ while Car.race_over == False:
     pygame.display.flip()
 # Game Loop End
 
-pygame.time.wait(4000)
+print(car1.checker_flag(), car2.checker_flag(), car3.checker_flag())
+print(car1.checker_flag() + car2.checker_flag() + car3.checker_flag())
+pygame.time.wait(5000)
 pygame.quit()
