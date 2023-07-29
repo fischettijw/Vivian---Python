@@ -41,23 +41,14 @@ while running:
     x_ball += x_speed
     y_ball += y_speed
 
-    if x_ball > width or x_ball < 0:
+    if x_ball > (width - radius) or x_ball < (0 + radius):
         x_speed *= -1
-
-    if y_ball > height or y_ball < 0:
-        y_speed *= -1
         ball_color = rnd_color()
 
-
+    if y_ball > (height - radius) or y_ball < radius:
+        y_speed *= -1
+        ball_color = rnd_color()
 	
-    # if x_ball > width - radius or x_ball < radius:
-    #     x_speed *= -1
-    #     ball_color = rnd_color()
-    # if y_ball > height - radius or y_ball < radius:
-    #     y_speed *= -1
-    #     ball_color = rnd_color()
-
-		
     # Draw to Buffer
     screen.fill("yellow")
     pygame.draw.circle(screen, ball_color, (x_ball, y_ball), radius)

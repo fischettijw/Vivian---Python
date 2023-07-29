@@ -1,4 +1,5 @@
 # Pygame Documentation    https://www.pygame.org/docs/
+# Displaying Text         https://youtu.be/ndtFoWWBAoE
 
 import pygame
 import random
@@ -9,10 +10,14 @@ os.system("cls")
 
 class Car():
     race_over = False
-    race_length = 0
-    car_width = 0
-    car_min_speed = 0
-    car_max_speed = 0    
+    race_length = None
+    car_width = None
+    car_min_speed = None
+    car_max_speed = None
+    win = None
+    
+    pygame.font.init()
+    my_font = pygame.font.SysFont(None, 30)
     
     def __init__(self, x, y, clr1, clr2):
         self.x = x
@@ -21,10 +26,10 @@ class Car():
         self.clr2 = clr2
         
     def draw_car(self):
-        pygame.draw.rect(screen, self.clr1, (self.x, self.y, Car.car_width, 20))
-        pygame.draw.rect(screen, self.clr2, (self.x + 10, self.y -20, Car.car_width - 30, 20))
-        pygame.draw.circle(screen, 'black',(self.x + 15,self.y + 20), 10)
-        pygame.draw.circle(screen, 'black',(self.x + 55,self.y + 20), 10)
+        pygame.draw.rect(Car.win, self.clr1, (self.x, self.y, Car.car_width, 20))
+        pygame.draw.rect(Car.win, self.clr2, (self.x + 10, self.y -20, Car.car_width - 30, 20))
+        pygame.draw.circle(Car.win, 'black',(self.x + 15,self.y + 20), 10)
+        pygame.draw.circle(Car.win, 'black',(self.x + 55,self.y + 20), 10)
         
     def move_car(self):
         self.x += random.randint(Car.car_min_speed, Car.car_max_speed)
@@ -35,6 +40,18 @@ class Car():
             return True
         else:
             return False
+        
+    def draw_lines():
+        pygame.draw.line(Car.win, "black", (0, 50), (Car.race_length, 50), 5)
+        pygame.draw.line(Car.win, "black", (0, 150), (Car.race_length, 150), 5)
+        pygame.draw.line(Car.win, "black", (0, 250), (Car.race_length, 250), 5)
+        pygame.draw.line(Car.win, "black", (0, 350), (Car.race_length, 350), 5)
+        
+    def draw_text(text, text_color, point):
+        img = Car.my_font.render(text, True ,text_color)
+        Car.win.blit(img, point)
+        
+########################################################################################
 
 # Screen Size
 screen_width = 1024
@@ -56,20 +73,20 @@ car3 = Car(0, 300, "magenta", "purple")
 
 cars = [car1, car2, car3]
 
-car_min_speed = 3
-car_max_speed = 4
-
 Car.race_length = screen_width
 Car.car_width = 70
-Car.car_min_speed = 3
-Car.car_max_speed = 6
+Car.car_min_speed = 2
+Car.car_max_speed = 3
 Car.race_over = False
+Car.win = screen
 
 # Game Loop Start
 while Car.race_over == False:
     screen.fill("cyan")
-    
-    pygame.display.set_caption(f"Vivan's Car Racing Game    {car1.x}")
+
+    # pygame.display.set_caption(f"Vivan's Car Racing Game    {car1.x}")
+    Car.draw_text("Vivian's Car Racing Game", "red", (400, 20))
+    Car.draw_lines()
 
     # Event Handler
     for event in pygame.event.get():
