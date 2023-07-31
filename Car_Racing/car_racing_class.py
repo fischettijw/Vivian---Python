@@ -83,6 +83,10 @@ bg_image = pygame.image.load("Car_Racing\grass_background.jpg").convert()
 
 car_cyan_image = pygame.image.load("Car_Racing\car_cyan.png").convert_alpha()
 car_cyan_image_x = 10
+car_purple_image = pygame.image.load("Car_Racing\car_purple.png").convert_alpha()
+car_purple_image_x = 10
+car_orange_image = pygame.image.load("Car_Racing\car_orange.png").convert_alpha()
+car_orange_image_x = 10
 
 Car.race_length = screen_width
 Car.car_width = 70
@@ -102,6 +106,10 @@ while Car.race_over == False:
 
     screen.blit(car_cyan_image, (car_cyan_image_x, 65))
     car_cyan_image_x += 1
+    screen.blit(car_purple_image, (car_purple_image_x, 165))
+    car_purple_image_x += 1
+    screen.blit(car_orange_image, (car_orange_image_x, 265))
+    car_orange_image_x += 1
 
     # Event Handler
     for event in pygame.event.get():
