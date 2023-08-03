@@ -27,13 +27,19 @@ def draw_car(x, y, num):
         screen.blit(car_cyan_image, (x - 50, y - 20))
         img = my_font.render(num, True, 'black')
         screen.blit(img, (x - 8, y + 4))
+        
+    if num == "3":
+        car_orange_image = pygame.image.load("Car_Racing\car_orange.png").convert_alpha()
+        screen.blit(car_orange_image, (x - 50, y - 20))
+        img = my_font.render(num, True, 'black')
+        screen.blit(img, (x - 8, y + 4))
     
 
     
 
 # Screen Size
 screen_width = 1024
-screen_height = 300
+screen_height = 400
 
 
 # Pygame Initialization
@@ -51,6 +57,9 @@ car1_y = 100
 
 car2_x = 0
 car2_y = 200
+
+car3_x = 0
+car3_y = 300
 
 car_min_speed = 3
 car_max_speed = 6
@@ -79,6 +88,11 @@ while running == True:
     car2_x += random.randint(car_min_speed, car_max_speed)
     if car2_x + 70 >= screen_width:
         running = False   
+    
+    draw_car(car3_x, car3_y, "3")
+    car3_x += random.randint(car_min_speed, car_max_speed)
+    if car3_x + 70 >= screen_width:
+        running = False   
 
     # FPS Clock and FLIP Screen
     fps_Clock.tick(fps)
@@ -87,7 +101,7 @@ while running == True:
 
 ###############################################
 
-print(car1_x, car2_x)
+print(car1_x, car2_x, car3_x)
  
 pygame.time.wait(1000)
 pygame.quit()
