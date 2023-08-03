@@ -8,7 +8,6 @@ import os
 # Clear Terminal
 os.system("cls")
 
-global car_image
 
 # Screen Size
 screen_width = 1024
@@ -30,7 +29,6 @@ class Car():
     car_max_speed = None
     win = None
 
-    pygame.font.init()
     my_font = pygame.font.SysFont(None, 50, bold=False, italic=True)
 
     def __init__(self, x, y, clr1, clr2):
@@ -69,6 +67,7 @@ class Car():
 
 ########################################################################################
 
+
 fps_Clock = pygame.time.Clock()
 fps = 60
 
@@ -81,12 +80,14 @@ cars = [car1, car2, car3]
 # Define all images
 bg_image = pygame.image.load("Car_Racing\grass_background.jpg").convert()
 
-car_cyan_image = pygame.image.load("Car_Racing\car_cyan.png").convert_alpha()
-car_cyan_image_x = 10
-car_purple_image = pygame.image.load("Car_Racing\car_purple.png").convert_alpha()
-car_purple_image_x = 10
-car_orange_image = pygame.image.load("Car_Racing\car_orange.png").convert_alpha()
-car_orange_image_x = 10
+# car_cyan_image = pygame.image.load("Car_Racing\car_cyan.png").convert_alpha()
+# car_cyan_image_x = 10
+# car_purple_image = pygame.image.load(
+#     "Car_Racing\car_purple.png").convert_alpha()
+# car_purple_image_x = 10
+# car_orange_image = pygame.image.load(
+#     "Car_Racing\car_orange.png").convert_alpha()
+# car_orange_image_x = 10
 
 Car.race_length = screen_width
 Car.car_width = 70
@@ -101,15 +102,16 @@ while Car.race_over == False:
     # screen.fill("cyan")
 
     screen.blit(bg_image, (0, 0))
+    
     Car.draw_text("Vivian's Car Racing Game", "black", (285, 10))
     Car.draw_lines()
 
-    screen.blit(car_cyan_image, (car_cyan_image_x, 65))
-    car_cyan_image_x += 1
-    screen.blit(car_purple_image, (car_purple_image_x, 165))
-    car_purple_image_x += 1
-    screen.blit(car_orange_image, (car_orange_image_x, 265))
-    car_orange_image_x += 1
+    # screen.blit(car_cyan_image, (car_cyan_image_x, 65))
+    # car_cyan_image_x += 1
+    # screen.blit(car_purple_image, (car_purple_image_x, 165))
+    # car_purple_image_x += 1
+    # screen.blit(car_orange_image, (car_orange_image_x, 265))
+    # car_orange_image_x += 1
 
     # Event Handler
     for event in pygame.event.get():
@@ -127,5 +129,5 @@ while Car.race_over == False:
 
 print(car1.checker_flag(), car2.checker_flag(), car3.checker_flag())
 print(car1.checker_flag() + car2.checker_flag() + car3.checker_flag())
-pygame.time.wait(1000)
+pygame.time.wait(2000)
 pygame.quit()

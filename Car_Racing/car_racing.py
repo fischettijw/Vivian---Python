@@ -7,21 +7,29 @@ import os
 os.system('cls')
 
 # Functions
-def draw_car(x, y):
+def draw_car(x, y, num):
     pygame.draw.rect(screen, 'blue', (x, y, 70, 20))
     pygame.draw.rect(screen, 'yellow', (x + 10, y - 20, 70 - 30, 20))
     pygame.draw.circle(screen, 'black', (x + 15, y + 20), 10)
     pygame.draw.circle(screen, 'black', (x + 55, y + 20), 10)
     
-    # pygame.draw.rect(screen, 'magenta', (x, y - 20, 70, 50))
+    img = my_font.render(num, True, 'magenta')
+    screen.blit(img, (x + 25, y - 20))
+
+    
 
 # Screen Size
 screen_width = 1024
 screen_height = 300
 
+
 # Pygame Initialization
 pygame.init()
 
+# Initialize Font
+my_font = pygame.font.SysFont(None, 32, bold=False, italic=True)
+
+# Create screen
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Vivan's Car Racing Game")
 
@@ -38,7 +46,7 @@ fps_Clock = pygame.time.Clock()
 fps = 60
 
 # Game Loop Start
-winner = ''
+winner = None
 running = True
 while running == True:
     # Clear Entire Screen with CYAN
@@ -49,26 +57,26 @@ while running == True:
         if event.type == pygame.QUIT:
             running = False
 
-    draw_car(car1_x, car1_y)
+    draw_car(car1_x, car1_y, "1")
     car1_x += random.randint(car_min_speed, car_max_speed)
     if car1_x + 70 >= screen_width:
-        if car2_x < car1_x:
-            winner = 'Car 1'
-        if car1_x < car2_x:
-            winner = 'Car 2'
-        if car1_x == car2_x:
-            winner = 'TIE'
+        # if car2_x < car1_x:
+        #     winner = 'Car 1'
+        # if car1_x < car2_x:
+        #     winner = 'Car 2'
+        # if car1_x == car2_x:
+        #     winner = 'TIE'
         running = False
     
-    draw_car(car2_x, car2_y)
+    draw_car(car2_x, car2_y, "2")
     car2_x += random.randint(car_min_speed, car_max_speed)
     if car2_x + 70 >= screen_width:
-        if car1_x < car2_x:
-            winner = 'Car 2'
-        if car2_x < car1_x:
-            winner = 'Car 1'
-        if car2_x == car1_x:
-            winner = 'TIE'
+        # if car1_x < car2_x:
+        #     winner = 'Car 2'
+        # if car2_x < car1_x:
+        #     winner = 'Car 1'
+        # if car2_x == car1_x:
+        #     winner = 'TIE'
         running = False   
 
     # FPS Clock and FLIP Screen
@@ -76,11 +84,13 @@ while running == True:
     pygame.display.flip()
 # Game Loop End
 
-pygame.time.wait(1000)
-if winner == 'tie':
-    print('NO WINNER: Both Cars Tied')
-else:
-    print("WINNING CAR:", winner )
-print()
+# if winner == 'tie':
+#     print('NO WINNER: Both Cars Tied')
+# else:
+#     print("WINNING CAR:", winner )
+# print()
+
+print(car1_x, car2_x)
  
+pygame.time.wait(1000)
 pygame.quit()
