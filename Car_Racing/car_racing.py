@@ -8,13 +8,26 @@ os.system('cls')
 
 # Functions
 def draw_car(x, y, num):
-    pygame.draw.rect(screen, 'blue', (x, y, 70, 20))
-    pygame.draw.rect(screen, 'yellow', (x + 10, y - 20, 70 - 30, 20))
-    pygame.draw.circle(screen, 'black', (x + 15, y + 20), 10)
-    pygame.draw.circle(screen, 'black', (x + 55, y + 20), 10)
+    # pygame.draw.rect(screen, 'blue', (x, y, 70, 20))
+    # pygame.draw.rect(screen, 'yellow', (x + 10, y - 20, 70 - 30, 20))
+    # pygame.draw.circle(screen, 'black', (x + 15, y + 20), 10)
+    # pygame.draw.circle(screen, 'black', (x + 55, y + 20), 10)
     
-    img = my_font.render(num, True, 'magenta')
-    screen.blit(img, (x + 25, y - 20))
+    # img = my_font.render(num, True, 'magenta')
+    # screen.blit(img, (x + 25, y - 20))
+    
+    if num == "1":
+        car_cyan_image = pygame.image.load("Car_Racing\car_cyan.png").convert_alpha()
+        screen.blit(car_cyan_image, (x - 50, y - 20))
+        img = my_font.render(num, True, 'black')
+        screen.blit(img, (x - 8, y + 4))
+        
+    if num == "2":
+        car_cyan_image = pygame.image.load("Car_Racing\car_purple.png").convert_alpha()
+        screen.blit(car_cyan_image, (x - 50, y - 20))
+        img = my_font.render(num, True, 'black')
+        screen.blit(img, (x - 8, y + 4))
+    
 
     
 
