@@ -60,23 +60,11 @@ while running == True:
     draw_car(car1_x, car1_y, "1")
     car1_x += random.randint(car_min_speed, car_max_speed)
     if car1_x + 70 >= screen_width:
-        # if car2_x < car1_x:
-        #     winner = 'Car 1'
-        # if car1_x < car2_x:
-        #     winner = 'Car 2'
-        # if car1_x == car2_x:
-        #     winner = 'TIE'
         running = False
     
     draw_car(car2_x, car2_y, "2")
     car2_x += random.randint(car_min_speed, car_max_speed)
     if car2_x + 70 >= screen_width:
-        # if car1_x < car2_x:
-        #     winner = 'Car 2'
-        # if car2_x < car1_x:
-        #     winner = 'Car 1'
-        # if car2_x == car1_x:
-        #     winner = 'TIE'
         running = False   
 
     # FPS Clock and FLIP Screen
@@ -84,11 +72,7 @@ while running == True:
     pygame.display.flip()
 # Game Loop End
 
-# if winner == 'tie':
-#     print('NO WINNER: Both Cars Tied')
-# else:
-#     print("WINNING CAR:", winner )
-# print()
+###############################################
 
 print(car1_x, car2_x)
  
